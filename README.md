@@ -116,7 +116,7 @@ Tally-Signature: <computed value>
 ---
 
 ### Postman Pre-request Script
-
+```
 const secret = pm.environment.get("tally_secret");
 const rawBody = pm.request.body.raw;
 
@@ -128,7 +128,7 @@ pm.request.headers.upsert({
   key: "Tally-Signature",
   value: signature
 });
-
+```
 ---
 
 ## Date & Time Formatting
