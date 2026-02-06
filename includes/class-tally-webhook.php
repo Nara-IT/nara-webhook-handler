@@ -286,28 +286,30 @@ class Tally_Webhook_Emailer {
 		//if (!empty($payload['eventId']))   $meta[] = ['Event ID', (string)$payload['eventId']];
 		//if (!empty($payload['eventType'])) $meta[] = ['Event Type', (string)$payload['eventType']];
 
-		// --- Inline styles (email safe) ---
+		// --- Inline styles (email safe) - Nara Premium Brand ---
 		$styles = [
-			'body' => 'margin:0;padding:0;background:#f6f7fb;font-family:Arial,Helvetica,sans-serif;color:#111;line-height:1.4;',
-			'wrap' => 'max-width:760px;margin:0 auto;padding:22px;',
-			'card' => 'background:#ffffff;border:1px solid #e6e8f0;border-radius:14px;overflow:hidden;',
-			'head' => 'padding:18px 20px;background:#0b1220;color:#ffffff;',
-			'title'=> 'margin:0;font-size:18px;line-height:1.3;',
-			'sub'  => 'margin:6px 0 0 0;font-size:12px;opacity:.85;',
-			'sec'  => 'padding:16px 20px;border-top:1px solid #eef0f6;',
-			'h2'   => 'margin:0 0 10px 0;font-size:13px;color:#0b1220;text-transform:uppercase;letter-spacing:.04em;',
+			'body' => 'margin:0;padding:0;background:#fdf6eb;font-family:Georgia,Garamond,"Times New Roman",serif;color:#4a3226;line-height:1.6;',
+			'wrap' => 'max-width:720px;margin:0 auto;padding:30px 20px;',
+			'card' => 'background:#ffffff;border:2px solid #b39c76;box-shadow:0 8px 24px rgba(74,50,38,0.08);overflow:hidden;',
+			'head' => 'padding:32px 28px 28px;background:linear-gradient(135deg, #4a3226 0%, #5d4434 100%);color:#fdf6eb;position:relative;',
+			'title'=> 'margin:0;font-size:24px;line-height:1.3;font-weight:400;letter-spacing:0.5px;color:#fdf6eb;',
+			'sub'  => 'margin:8px 0 0 0;font-size:13px;opacity:.82;letter-spacing:0.8px;text-transform:uppercase;color:#b39c76;font-family:Arial,Helvetica,sans-serif;',
+			'sec'  => 'padding:24px 28px;border-top:1px solid #b39c7633;',
+			'h2'   => 'margin:0 0 16px 0;font-size:12px;color:#ae6c4a;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;font-family:Arial,Helvetica,sans-serif;',
 			'metaT'=> 'width:100%;border-collapse:collapse;',
-			'metaK'=> 'padding:8px 10px;border:1px solid #eef0f6;background:#fafbff;width:170px;font-weight:bold;font-size:13px;',
-			'metaV'=> 'padding:8px 10px;border:1px solid #eef0f6;font-size:13px;',
+			'metaK'=> 'padding:12px 14px;border:1px solid #b39c7622;background:#fdf6eb;width:180px;font-weight:600;font-size:13px;color:#4a3226;font-family:Arial,Helvetica,sans-serif;',
+			'metaV'=> 'padding:12px 14px;border:1px solid #b39c7622;font-size:14px;color:#4a3226;',
 			'tbl'  => 'width:100%;border-collapse:separate;border-spacing:0;',
-			'q'    => 'padding:12px 12px;border-top:1px solid #eef0f6;vertical-align:top;width:260px;background:#fbfcff;',
-			'a'    => 'padding:12px 12px;border-top:1px solid #eef0f6;vertical-align:top;',
-			'label'=> 'font-weight:700;font-size:13px;color:#0b1220;margin:0;',
-			'pill' => 'display:inline-block;margin-top:7px;padding:3px 9px;border-radius:999px;background:#eef2ff;color:#2b3a8f;font-size:11px;',
-			'empty'=> 'color:#6b7280;font-style:italic;',
-			'foot' => 'padding:14px 20px;background:#fbfcff;border-top:1px solid #eef0f6;font-size:12px;color:#555;',
-			'chip' => 'display:inline-block;padding:2px 8px;border-radius:999px;background:#f1f5f9;color:#0f172a;font-size:12px;margin:0 6px 6px 0;',
-			'muted'=> 'color:#6b7280;font-size:12px;',
+			'q'    => 'padding:16px 14px;border-top:1px solid #b39c7622;vertical-align:top;width:240px;background:#fdf6eb;',
+			'a'    => 'padding:16px 14px;border-top:1px solid #b39c7622;vertical-align:top;',
+			'label'=> 'font-weight:600;font-size:14px;color:#4a3226;margin:0;font-family:Arial,Helvetica,sans-serif;',
+			'pill' => 'display:inline-block;margin-top:8px;padding:4px 12px;border-radius:3px;background:#b39c7620;color:#ae6c4a;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;font-weight:500;',
+			'empty'=> 'color:#8b7355;font-style:italic;',
+			'foot' => 'padding:20px 28px;background:#fdf6eb;border-top:2px solid #b39c76;font-size:12px;color:#8b7355;text-align:center;',
+			'chip' => 'display:inline-block;padding:6px 14px;border-radius:3px;background:#ffffff15;border:1px solid #ffffff25;color:#fdf6eb;font-size:12px;margin:0 8px 8px 0;font-family:Arial,Helvetica,sans-serif;font-weight:500;',
+			'muted'=> 'color:#8b7355;font-size:12px;font-style:italic;',
+			'logo' => 'margin:0 0 12px 0;',
+			'accent'=> 'width:100%;height:3px;background:linear-gradient(90deg, #b39c76 0%, #ae6c4a 100%);margin:0;',
 		];
 
 		// --- Helper: skip noisy per-option checkbox booleans like "Checkboxes (Soccer)" ---
@@ -332,7 +334,7 @@ class Tally_Webhook_Emailer {
 			             . '</tr>';
 		}
 
-		// --- Optional: quick “highlights” row (makes emails scan-friendly) ---
+		// --- Optional: quick "highlights" row (makes emails scan-friendly) ---
 		// We try to pull a few common fields if present (Rating, Email, Phone).
 		$highlights = [];
 		foreach ($fields as $f) {
@@ -384,44 +386,50 @@ class Tally_Webhook_Emailer {
 			$answerRows .= '<tr>'
 			               . '<td style="'.$styles['q'].'">'
 			               .   '<div style="'.$styles['label'].'">' . self::e($label) . '</div>'
-			               .   ($type ? '<div style="'.$styles['pill'].'">' . self::e($type) . '</div>' : '')
 			               . '</td>'
 			               . '<td style="'.$styles['a'].'">' . $valueHtml . '</td>'
 			               . '</tr>';
 		}
 
 		if ($answerRows === '') {
-			$answerRows = '<tr><td colspan="2" style="padding:14px;border-top:1px solid #eef0f6;"><span style="'.$styles['empty'].'">No fields found.</span></td></tr>';
+			$answerRows = '<tr><td colspan="2" style="padding:14px;border-top:1px solid #b39c7622;"><span style="'.$styles['empty'].'">No fields found.</span></td></tr>';
 		}
 
-		$siteName = (string) get_bloginfo('name');
+		//$siteName = (string) get_bloginfo('name');
+		//$siteUrl = (string) get_bloginfo('url');
+		$logoUrl = 'https://www.nara.ae/wp-content/uploads/2025/12/NARA-LOGO-WHITE.png';
 
 		$html =
 			'<!doctype html><html><head><meta charset="utf-8"></head>'
 			. '<body style="'.$styles['body'].'">'
 			.   '<div style="'.$styles['wrap'].'">'
 			.     '<div style="'.$styles['card'].'">'
+			.       '<div style="'.$styles['accent'].'"></div>'
 			.       '<div style="'.$styles['head'].'">'
-			.         '<h1 style="'.$styles['title'].'">' . self::e($formName) . ' — New submission</h1>'
-			.         '<div style="'.$styles['sub'].'">' . self::e($siteName) . '</div>'
+			.         '<div style="'.$styles['logo'].'">'
+			.           '<img src="' . esc_url($logoUrl) . '" alt="Nara" width="120" style="display:block;height:auto;" />'
+			.         '</div>'
+			.         '<h1 style="'.$styles['title'].'">' . self::e($formName) . '</h1>'
+			.         '<div style="'.$styles['sub'].'">New Submission Received</div>'
 			.         $highlightsHtml
 			.       '</div>'
 
 			.       '<div style="'.$styles['sec'].'">'
-			.         '<div style="'.$styles['h2'].'">Submission details</div>'
+			.         '<div style="'.$styles['h2'].'">Submission Details</div>'
 			.         '<table style="'.$styles['metaT'].'" cellpadding="0" cellspacing="0">' . $metaRows . '</table>'
 			.       '</div>'
 
 			.       '<div style="'.$styles['sec'].'">'
-			.         '<div style="'.$styles['h2'].'">Answers</div>'
+			.         '<div style="'.$styles['h2'].'">Guest Responses</div>'
 			.         '<table style="'.$styles['tbl'].'" cellpadding="0" cellspacing="0">' . $answerRows . '</table>'
-			.         '<div style="'.$styles['muted'].';margin-top:10px;">'
-			.           'Tip: Do not reply to this email. Sent from Nara Desert Escape Feedback Form'
+			.         '<div style="'.$styles['muted'].';margin-top:16px;">'
+			.           'This is an automated notification. Please do not reply to this email.'
 			.         '</div>'
 			.       '</div>'
 
 			.       '<div style="'.$styles['foot'].'">'
-			.         'Nara Desert Escape'
+			.         '<div style="margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;letter-spacing:0.5px;">NARA HOSPITALITY</div>'
+			.         '<div style="font-size:11px;color:#ae6c4a;">Transform Moments Into Signature Memories</div>'
 			.       '</div>'
 			.     '</div>'
 			.   '</div>'
