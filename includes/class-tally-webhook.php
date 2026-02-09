@@ -247,7 +247,7 @@ class Tally_Webhook_Emailer {
 			. '</table>'
 			. '</body></html>';
 
-		$subject = '[Tally Feedback] ' . $formName . ($submissionId ? " (#{$submissionId})" : '');
+		$subject = '[Sonara Feedback] ' . $formName . ($submissionId ? " (#{$submissionId})" : '');
 
 		// Plaintext fallback
 		$text = $formName . " — New submission\n";
@@ -291,9 +291,9 @@ class Tally_Webhook_Emailer {
 			'body' => 'margin:0;padding:0;background:#fdf6eb;font-family:Georgia,Garamond,"Times New Roman",serif;color:#4a3226;line-height:1.6;',
 			'wrap' => 'max-width:720px;margin:0 auto;padding:30px 20px;',
 			'card' => 'background:#ffffff;border:2px solid #b39c76;box-shadow:0 8px 24px rgba(74,50,38,0.08);overflow:hidden;',
-			'head' => 'padding:32px 28px 28px;background:linear-gradient(135deg, #4a3226 0%, #5d4434 100%);color:#fdf6eb;position:relative;',
-			'title'=> 'margin:0;font-size:24px;line-height:1.3;font-weight:400;letter-spacing:0.5px;color:#fdf6eb;',
-			'sub'  => 'margin:8px 0 0 0;font-size:13px;opacity:.82;letter-spacing:0.8px;text-transform:uppercase;color:#b39c76;font-family:Arial,Helvetica,sans-serif;',
+			'head'  => 'padding:32px 28px 28px;background:linear-gradient(135deg, #4a3226 0%, #5d4434 100%);color:#ffffff !important;-webkit-text-fill-color:#ffffff;position:relative;',
+			'title' => 'margin:0;font-size:24px;line-height:1.3;font-weight:400;letter-spacing:0.5px;color:#ffffff !important;-webkit-text-fill-color:#ffffff;',
+			'sub'  => 'margin:8px 0 0 0;font-size:13px;letter-spacing:0.8px;text-transform:uppercase;color:#ffffff !important;-webkit-text-fill-color:#ffffff;font-family:Arial,Helvetica,sans-serif;',
 			'sec'  => 'padding:24px 28px;border-top:1px solid #b39c7633;',
 			'h2'   => 'margin:0 0 16px 0;font-size:12px;color:#ae6c4a;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;font-family:Arial,Helvetica,sans-serif;',
 			'metaT'=> 'width:100%;border-collapse:collapse;',
@@ -306,7 +306,7 @@ class Tally_Webhook_Emailer {
 			'pill' => 'display:inline-block;margin-top:8px;padding:4px 12px;border-radius:3px;background:#b39c7620;color:#ae6c4a;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;font-family:Arial,Helvetica,sans-serif;font-weight:500;',
 			'empty'=> 'color:#8b7355;font-style:italic;',
 			'foot' => 'padding:20px 28px;background:#fdf6eb;border-top:2px solid #b39c76;font-size:12px;color:#8b7355;text-align:center;',
-			'chip' => 'display:inline-block;padding:6px 14px;border-radius:3px;background:#ffffff15;border:1px solid #ffffff25;color:#fdf6eb;font-size:12px;margin:0 8px 8px 0;font-family:Arial,Helvetica,sans-serif;font-weight:500;',
+			'chip'  => 'display:inline-block;padding:6px 14px;border-radius:3px;background:#ffffff15;border:1px solid #ffffff25;color:#ffffff !important;-webkit-text-fill-color:#ffffff;font-size:12px;margin:0 8px 8px 0;font-family:Arial,Helvetica,sans-serif;font-weight:500;',
 			'muted'=> 'color:#8b7355;font-size:12px;font-style:italic;',
 			'logo' => 'margin:0 0 12px 0;',
 			'accent'=> 'width:100%;height:3px;background:linear-gradient(90deg, #b39c76 0%, #ae6c4a 100%);margin:0;',
@@ -357,8 +357,9 @@ class Tally_Webhook_Emailer {
 			foreach ($highlights as $h) {
 				$chips[] = '<span style="'.$styles['chip'].'">'.$h.'</span>';
 			}
-			$highlightsHtml =
-				'<div style="margin-top:10px;">' . implode(' ', $chips) . '</div>';
+
+			$highlightsHtml = '<div style="margin-top:10px;color:#ffffff !important;-webkit-text-fill-color:#ffffff;">' . implode(' ', $chips) . '</div>';
+
 		}
 
 		// --- Answers HTML ---
